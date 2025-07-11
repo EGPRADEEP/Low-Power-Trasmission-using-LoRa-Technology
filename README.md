@@ -1,86 +1,109 @@
-# 🚀 Low-Power LoRa Transmission with STM32 (915 MHz)
+##🚀 Low-Power Long-Range Data Transmission Using LoRaWAN with STM32
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
-[![Author: EGPRADEEP](https://img.shields.io/badge/Author-EGPRADEEP-blue.svg)](https://github.com/EGPRADEEP)
 
-A low-power, long-range wireless communication project demonstrating how to interface two **STM32F103C6T6 ("Blue Pill")** microcontrollers with **SX1276 LoRa modules** at 915 MHz using SPI and STM32 HAL. Transmit sensor or text data over several kilometers while minimizing energy consumption—ideal for remote IoT and telemetry systems.
 
----
+This project demonstrates a low-power wireless communication system using LoRaWAN (Long Range Wide Area Network) technology implemented on STM32F103C6T6 microcontrollers (Blue Pill) paired with SX1276 LoRa modules operating at 915 MHz. The system enables efficient point-to-point data transmission over long distances while consuming minimal energy, making it ideal for remote IoT applications, environmental monitoring, and telemetry systems.
 
-## 📸 Project Preview
+📖 Project Overview
+The project sets up a wireless communication link between two STM32 boards configured as transmitter (TX) and receiver (RX). Data packets are transmitted using the LoRa PHY layer, and the system is designed to simulate the key principles of LoRaWAN, focusing on:
 
-_Sender + Receiver breadboard setup and pin connections_
+Low power consumption
 
-<p align="center">
-  <img src="images/image0.jpg" alt="Setup view" width="600"/>
-  <img src="images/image1.jpg" alt="Detailed wiring TX" width="600"/>
-  <img src="images/image2.jpg" alt="Detailed wiring RX" width="600"/>
-  <img src="images/image3.jpg" alt="Serial monitor output" width="600"/>
-</p>
+Long communication range
 
----
+High signal penetration
 
-## 📚 Table of Contents
-- [✨ Features](#-features)
-- [🔧 Hardware Used](#-hardware-used)
-- [📦 Software & Libraries](#-software--libraries)
-- [🔌 Wiring & Schematics](#-wiring--schematics)
-- [⚙️ How It Works](#️-how-it-works)
-- [📁 Folder Structure](#-folder-structure)
-- [▶️ Installation & Usage](#️-installation--usage)
-- [🧪 Testing & Output](#-testing--output)
-- [🔗 References](#-references)
-- [📃 License](#-license)
+Simple architecture for embedded development
 
----
+By utilizing the STM32 HAL library, this implementation offers modular firmware design and compatibility with various embedded development tools like Keil uVision and STM32CubeIDE.
 
-## ✨ Features
+✨ Key Features
+Ultra Low-Power Operation: Sleep mode enabled between transmissions
 
-- Ultra-low power consumption via sleep mode between LoRa transmissions  
-- Simple point-to-point communication using SX1276 (915 MHz) over SPI  
-- STM32Blue Pill microcontroller and HAL library firmware  
-- Console output via UART (115200 baud) for easy debugging  
-- Modular architecture: setup as TX or RX using a single codebase  
+Long-Range Communication: 915 MHz LoRa modulation for extended range
 
----
+STM32-Based Design: Efficient ARM Cortex-M3 processing using HAL
 
-## 🔧 Hardware Used
+Flexible Deployment: Easy switching between TX and RX roles
 
-| Hardware                        | Quantity |
-|-------------------------------|----------|
-| STM32F103C6T6 Blue Pill       | 2        |
-| SX1276 LoRa Module (915 MHz) | 2        |
-| FTDI USB‑Serial Adapter       | 1–2      |
-| Jumper wires & Breadboards    | —        |
+UART Monitoring: Serial output for real-time data visualization
 
----
+Extendable Architecture: Integration with sensors (e.g., DHT11) or displays (e.g., OLED) supported
 
-## 📦 Software & Libraries
+🔧 Hardware Components
+STM32F103C6T6 (Blue Pill) Microcontroller – 2 units
 
-- STM32 HAL drivers (generated via CubeMX or Keil)  
-- SX1276 LoRa driver (adapted for STM32)  
-- Optional enhancements: integrate sensors (e.g., DHT11) or display modules (e.g., OLED)
+SX1276 LoRa Module (915 MHz) – 2 units
 
----
+USB-to-Serial Adapter (ST-Link)
 
-## 🔌 Wiring & Schematics
+Breadboards and Jumper Wires
 
-### FTDI ↔ STM32 (UART)
+Power Supply (3.3V)
 
----
+⚙️ How It Works
+Transmitter Setup: The TX board reads a message or sensor value and sends it wirelessly using the SX1276 LoRa module via SPI.
 
-## ⚙️ How It Works
+Receiver Setup: The RX board receives the packet using its own SX1276 module and prints the data over UART to a serial monitor.
 
-1. Choose mode in `main.c`:  
-   ```c
-   #define TX  // Sender mode
-   //#define RX // Receiver mode
-🔗 References
-SX1276 datasheet (Semtech)
+Power Optimization: Between transmissions, the microcontroller and radio module can be put into low-power or sleep mode to reduce energy usage.
 
-STM32 LoRa driver adaptation (e.g., domski.pl blog)
+Protocol Configuration: Although LoRaWAN requires a network stack and gateways, this project emulates the LoRa physical layer of LoRaWAN for simplicity and learning purposes.
+
+🧠 Use Cases
+Remote Weather Stations
+
+Smart Agriculture Monitoring
+
+Asset and Wildlife Tracking
+
+Disaster Area Communication Systems
+
+Battery-Operated Sensor Nodes
+
+📁 Project Structure
+css
+Copy
+Edit
+/
+├── Core/                 → STM32 HAL code (Drivers + App)
+├── Drivers/              → SX1276 LoRa driver
+├── main.c                → Core logic for TX/RX
+├── LowPowerLoRa.uvprojx  → Keil project file
+├── README.md
+└── LICENSE
+▶️ How to Use
+Clone the Repository:
+
+bash
+Copy
+Edit
+git clone https://github.com/EGPRADEEP/Low-Power-Trasmission-using-LoRa-Technology.git
+Open in Keil uVision or STM32CubeIDE
+
+Select Role in Code:
+In main.c, uncomment the appropriate mode:
+
+c
+Copy
+Edit
+#define TX  // for transmitter
+//#define RX // for receiver
+Flash the Code to your STM32 boards (TX & RX)
+
+Monitor Output using any UART serial terminal at 115200 baud
+
+📚 References
+LoRaWAN Overview – LoRa Alliance
+
+SX1276 Datasheet – Semtech
+
+STM32 HAL Documentation – STMicroelectronics
+
+Original Project Inspiration – How2Electronics
 
 📃 License
-This project is distributed under the MIT License.
+This project is licensed under the MIT License
 
-Made by EGPRADEEP
+Designed and developed with 💡 by EGPRADEEP
+
