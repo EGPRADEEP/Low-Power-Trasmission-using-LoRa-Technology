@@ -1,38 +1,21 @@
-# 🚀 Interfacing LoRa SX1276 with STM32 (LR1276 915 MHz)
+# 🚀 Low-Power LoRa Transmission with STM32 (915 MHz)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
 [![Author: EGPRADEEP](https://img.shields.io/badge/Author-EGPRADEEP-blue.svg)](https://github.com/EGPRADEEP)
 
-This project demonstrates how to interface the **LoRa SX1276 (LR1276 915 MHz)** module with an **STM32F103C6T6 (Blue Pill)** microcontroller using SPI to establish long-range, low-power wireless communication. It sends data from a transmitter STM32 to a receiver STM32 board via LoRa and displays output using UART or optionally on an OLED display.
-
-The project is ideal for **IoT communication**, **remote sensor networks**, and **embedded wireless systems** development.
+A low-power, long-range wireless communication project demonstrating how to interface two **STM32F103C6T6 ("Blue Pill")** microcontrollers with **SX1276 LoRa modules** at 915 MHz using SPI and STM32 HAL. Transmit sensor or text data over several kilometers while minimizing energy consumption—ideal for remote IoT and telemetry systems.
 
 ---
 
-## 📷 Project Preview
+## 📸 Project Preview
 
-Sender and receiver on breadboards:
-
-<p align="center">
-  <img src="images/image0.jpg" alt="LoRa + STM32 setup" width="600"/>
-</p>
-
-LoRa TX module wiring:
+_Sender + Receiver breadboard setup and pin connections_
 
 <p align="center">
-  <img src="images/image1.jpg" alt="TX Wiring" width="600"/>
-</p>
-
-LoRa RX module wiring:
-
-<p align="center">
-  <img src="images/image2.jpg" alt="RX Wiring" width="600"/>
-</p>
-
-Serial output from receiver:
-
-<p align="center">
-  <img src="images/image3.jpg" alt="Serial Monitor Output" width="600"/>
+  <img src="images/image0.jpg" alt="Setup view" width="600"/>
+  <img src="images/image1.jpg" alt="Detailed wiring TX" width="600"/>
+  <img src="images/image2.jpg" alt="Detailed wiring RX" width="600"/>
+  <img src="images/image3.jpg" alt="Serial monitor output" width="600"/>
 </p>
 
 ---
@@ -40,7 +23,7 @@ Serial output from receiver:
 ## 📚 Table of Contents
 - [✨ Features](#-features)
 - [🔧 Hardware Used](#-hardware-used)
-- [📦 Libraries Used](#-libraries-used)
+- [📦 Software & Libraries](#-software--libraries)
 - [🔌 Wiring & Schematics](#-wiring--schematics)
 - [⚙️ How It Works](#️-how-it-works)
 - [📁 Folder Structure](#-folder-structure)
@@ -53,60 +36,51 @@ Serial output from receiver:
 
 ## ✨ Features
 
-- Long-range wireless data transfer using LoRa SX1276 (915 MHz)
-- STM32F103C6T6 (Blue Pill) microcontroller-based implementation
-- SPI-based communication using STM32 HAL libraries
-- Serial debugging output for data transmission verification
-- Easy expansion for DHT11 sensor or OLED integration
+- Ultra-low power consumption via sleep mode between LoRa transmissions  
+- Simple point-to-point communication using SX1276 (915 MHz) over SPI  
+- STM32Blue Pill microcontroller and HAL library firmware  
+- Console output via UART (115200 baud) for easy debugging  
+- Modular architecture: setup as TX or RX using a single codebase  
 
 ---
 
 ## 🔧 Hardware Used
 
-| Component                       | Quantity |
+| Hardware                        | Quantity |
 |-------------------------------|----------|
 | STM32F103C6T6 Blue Pill       | 2        |
-| LoRa SX1276 (915 MHz) Module  | 2        |
-| FTDI USB to Serial Adapter    | 1–2      |
-| Jumper Wires                  | As needed |
-| Breadboards                   | 2        |
+| SX1276 LoRa Module (915 MHz) | 2        |
+| FTDI USB‑Serial Adapter       | 1–2      |
+| Jumper wires & Breadboards    | —        |
 
 ---
 
-## 📦 Libraries Used
+## 📦 Software & Libraries
 
-- **LoRa_STM32** – Adapted LoRa driver for STM32 (based on Sandeep Mistry’s Arduino LoRa library)
-- **STM32 HAL** – Hardware Abstraction Layer generated via STM32CubeMX or Keil
-- (Optional) DHT and OLED drivers for sensor/display use
+- STM32 HAL drivers (generated via CubeMX or Keil)  
+- SX1276 LoRa driver (adapted for STM32)  
+- Optional enhancements: integrate sensors (e.g., DHT11) or display modules (e.g., OLED)
 
 ---
 
 ## 🔌 Wiring & Schematics
 
+### FTDI ↔ STM32 (UART)
 
 ---
 
 ## ⚙️ How It Works
 
-1. **TX board** sends hardcoded or sensor-acquired data via LoRa.
-2. **RX board** receives packets and logs them via UART.
-3. LoRa configured for **915 MHz**, using SPI and HAL.
-4. UART output shown on serial monitor (e.g., Tera Term @115200 baud).
-
-You can enable either transmitter or receiver code in `main.c`:
-
-▶️ Installation & Usage
-Clone the repo:
-git clone https://github.com/EGPRADEEP/LoRa-SX1276-STM32.git
+1. Choose mode in `main.c`:  
+   ```c
+   #define TX  // Sender mode
+   //#define RX // Receiver mode
 🔗 References
-📘 How2Electronics Project Tutorial
+SX1276 datasheet (Semtech)
 
-📘 Semtech SX1276 Datasheet
-
-📘 STM32 HAL LoRa Driver (W. Domski)
+STM32 LoRa driver adaptation (e.g., domski.pl blog)
 
 📃 License
-This project is licensed under the MIT License.
+This project is distributed under the MIT License.
 
-Designed by EGPRADEEP
-
+Made by EGPRADEEP
