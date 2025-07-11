@@ -7,13 +7,14 @@ This project demonstrates a low-power wireless communication system using LoRaWA
 📖  **Project Overview**
 The project sets up a wireless communication link between two STM32 boards configured as transmitter (TX) and receiver (RX).The system is designed to simulate the key principles of LoRaWAN, focusing on:
 
-Low power consumption
+**Low power consumption**
 
-Long communication range
+**Long communication range**
 
 By utilizing the STM32 HAL library, this implementation offers modular firmware design and compatibility with various tools like AurduinoIDE.
 
 🔧 Hardware Components
+
 STM32F103C6T6 (Blue Pill) Microcontroller – 2 units
 
 SX1276 LoRa Module (915 MHz) – 2 units
