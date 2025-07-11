@@ -4,7 +4,7 @@
 
 This project demonstrates a low-power wireless communication system using LoRaWAN (Long Range Wide Area Network) technology implemented on STM32F103C6T6 microcontrollers (Blue Pill) paired with SX1276 LoRa modules operating at 915 MHz. The system enables efficient point-to-point data transmission over long distances while consuming minimal energy, making it ideal for remote IoT applications, environmental monitoring, and telemetry systems.
 
-*📖 **Project Overview**
+#📖 **Project Overview**
 The project sets up a wireless communication link between two STM32 boards configured as transmitter (TX) and receiver (RX).The system is designed to simulate the key principles of LoRaWAN, focusing on:
 
 Low power consumption
