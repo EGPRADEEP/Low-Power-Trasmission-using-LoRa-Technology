@@ -97,3 +97,16 @@ See full schematic at [How2Electronics Article](https://how2electronics.com/inte
    ```bash
    git clone https://github.com/EGPRADEEP/Interfacing-LoRa-SX1276-STM32.git
 
+---
+
+## ✅ Next Steps for You
+
+1. Upload the images (`stm32-lora-setup.jpg`, `stm32-lora-circuit.jpg`, `output-screenshot.png`) into a folder named `/images` in your repo.
+2. Create a `LICENSE` file with [MIT License](https://choosealicense.com/licenses/mit/).
+3. Paste the above content into your `README.md`.
+4. Push your changes using:
+   ```bash
+   git add .
+   git commit -m "Add professional README and images"
+   git push origin main
+
