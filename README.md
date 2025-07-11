@@ -83,3 +83,17 @@ See full schematic at [How2Electronics Article](https://how2electronics.com/inte
 
 ## 📁 Folder Structure
 
+---
+
+## ▶️ How to Run
+
+### Prerequisites:
+- STM32CubeIDE installed
+- USB-TTL for uploading if needed
+- I2C and UART peripherals configured in `.ioc` file
+
+### Steps:
+1. Clone the repo  
+   ```bash
+   git clone https://github.com/EGPRADEEP/Interfacing-LoRa-SX1276-STM32.git
+
