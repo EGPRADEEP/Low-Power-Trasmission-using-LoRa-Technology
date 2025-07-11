@@ -3,89 +3,77 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
 [![Author: EGPRADEEP](https://img.shields.io/badge/Author-EGPRADEEP-blue.svg)](https://github.com/EGPRADEEP)
 
-This project demonstrates how to interface the **LoRa SX1276 (LR1276 915 MHz)** module with an **STM32F103C6T6 (Blue Pill)** microcontroller to wirelessly transmit temperature and humidity data (via DHT11) and display it on an OLED display.
+This project demonstrates how to interface the **LoRa SX1276 (LR1276 915 MHz)** module with an **STM32F103C6T6 (Blue Pill)** microcontroller to wirelessly transmit data. It uses **SPI communication** and the **STM32 HAL library** to build a basic wireless system for long-range, low-power communication.
 
 ---
 
-## 📷 Project Preview
-
-Sender and receiver modules connected on breadboards:
+## 📸 Project Preview
 
 <p align="center">
-  <img src="images/image0.jpg" alt="LoRa + STM32 setup" width="600"/>
+  <img src="images/image0.jpg" alt="LoRa STM32 Setup" width="600"/>
 </p>
 
-Breadboard wiring close-up:
-
 <p align="center">
-  <img src="images/image1.jpg" alt="Connections close-up" width="600"/>
-</p>
-
-Circuit schematic:
-
-<p align="center">
-  <img src="images/image2.jpg" alt="Circuit diagram" width="600"/>
-</p>
-
-LoRa module wiring details:
-
-<p align="center">
-  <img src="images/image3.jpg" alt="LoRa module wiring" width="600"/>
+  <img src="images/image1.jpg" alt="Breadboard Wiring" width="600"/>
 </p>
 
 ---
 
 ## 📚 Table of Contents
-- [Features](#-features)
-- [Hardware Used](#-hardware-used)
-- [Libraries](#-libraries)
-- [Wiring & Schematics](#-wiring--schematics)
-- [How It Works](#-how-it-works)
-- [Folder Structure](#-folder-structure)
-- [Installation & Usage](#-installation--usage)
-- [Screenshots](#-screenshots)
-- [License](#-license)
-- [References](#-references)
+- [✨ Features](#-features)
+- [🔧 Hardware Used](#-hardware-used)
+- [📦 Libraries](#-libraries)
+- [🔌 Wiring & Schematics](#-wiring--schematics)
+- [⚙️ How It Works](#-how-it-works)
+- [📁 Folder Structure](#-folder-structure)
+- [▶️ Installation & Usage](#-installation--usage)
+- [🧪 Screenshots](#-screenshots)
+- [📘 References](#-references)
+- [🪪 License](#-license)
 
 ---
 
 ## ✨ Features
-- STM32 Blue Pill (STM32F103C6T6) microcontroller
-- LoRa SX1276 LR1276‑915 MHz modules (sender + receiver)
-- DHT11 temperature/humidity sensor
-- I2C OLED display on receiver
-- Built using STM32 HAL and LoRa_STM32 library
+- LoRa SX1276 module communication at 915 MHz
+- STM32F103C6T6 (Blue Pill) microcontroller
+- SPI interface with STM32 HAL
+- Serial output for debugging and logging
+- Breadboard-friendly circuit for prototyping
 
 ---
 
 ## 🔧 Hardware Used
 
-| Component                       | Qty | Example Link |
-|-------------------------------|-----|--------------|
-| STM32F103 Blue Pill           | 2   | Local/E‑commerce |
-| LoRa SX1276 (915 MHz)         | 2   | Local/E‑commerce |
-| DHT11 Sensor                  | 1   | Local/E‑commerce |
-| 0.96″ I2C OLED Display        | 1   | Local/E‑commerce |
-| Jumper Wires, Breadboard, USB | —   | Local/E‑commerce |
+| Component                       | Qty |
+|-------------------------------|-----|
+| STM32F103C6T6 Blue Pill       | 2   |
+| LoRa SX1276 (LR1276 915 MHz)  | 2   |
+| FTDI or ST-LINK Programmer    | 2   |
+| Breadboard + Jumper Wires     | –   |
 
 ---
 
-## 📦 Libraries Used
-- **LoRa_STM32** – SPI LoRa driver adapted for STM32 (based on Sandeep Mistry’s library)
-- STM32 HAL (STM32CubeIDE-generated)
-- Custom DHT and OLED HAL drivers
+## 📦 Libraries
+
+- STM32 HAL (STM32CubeMX or Keil)
+- [LoRa_STM32 Library](https://github.com/sandeepmistry/arduino-LoRa) (adapted)
+- Custom SPI and UART configuration
 
 ---
 
 ## 🔌 Wiring & Schematics
 
-Refer to the images above. Detailed circuit diagrams and wiring steps are available in the original How2Electronics tutorial.
+### FTDI ↔ STM32 (for Serial Debugging)
 
 ---
 
 ## ⚙️ How It Works
-- **Sender:** Reads temperature/humidity via DHT11 and transmits via LoRa.
-- **Receiver:** Receives LoRa packet and shows data on OLED display.
+
+1. LoRa modules initialized using STM32 HAL over SPI.
+2. Frequency set to 915 MHz.
+3. One board sends "Hello from STM32" repeatedly.
+4. Other board receives and prints to Serial Monitor.
+5. Communication confirmed through serial debug (115200 baud).
 
 ---
 
