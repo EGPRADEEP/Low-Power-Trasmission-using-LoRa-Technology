@@ -95,10 +95,6 @@ Serial output from receiver:
 
 You can enable either transmitter or receiver code in `main.c`:
 
-```c
-#define TX   // For transmitter mode
-//#define RX  // For receiver mode
-### 🔁 FTDI to STM32 (for UART output)
 ▶️ Installation & Usage
 Clone the repo:
 git clone https://github.com/EGPRADEEP/LoRa-SX1276-STM32.git
