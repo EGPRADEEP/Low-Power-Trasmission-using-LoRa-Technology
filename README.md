@@ -31,6 +31,7 @@ Transmitter Setup: The TX board reads a message or sensor value and sends it wir
 Receiver Setup: The RX board receives the packet using its own SX1276 module and prints the data over UART to a serial monitor.
 
 🧠 Use Cases
+
 Remote Weather Stations
 
 Smart Agriculture Monitoring
@@ -38,11 +39,13 @@ Smart Agriculture Monitoring
 Disaster Area Communication Systems
 
 ▶️ How to Use
+
 Clone the Repository:
 
 git clone https://github.com/EGPRADEEP/Low-Power-Trasmission-using-LoRa-Technology.git
 
 📚 References
+
 LoRaWAN Overview – LoRa Alliance
 
 SX1276 Datasheet – Semtech
@@ -52,6 +55,7 @@ STM32 HAL Documentation – STMicroelectronics
 Original Project Inspiration – How2Electronics
 
 📃 License
+
 This project is licensed under the MIT License
 
 Designed and developed with 💡 by EGPRADEEP
