@@ -52,7 +52,7 @@ SX1276 Datasheet – Semtech
 
 STM32 HAL Documentation – STMicroelectronics
 
-Original Project Inspiration – How2Electronics
+Original Project Inspiration – https://how2electronics.com/interfacing-lora-sx1276-with-stm32-microcontroller-lr1276-915mhz/
 
 📃 License
 
